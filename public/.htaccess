@@ -1,6 +1,6 @@
 PassengerNodejs /home/igopav2/.nvm/versions/node/v10.14.2/bin/node
 
 
-PassengerAppRoot /home/igopav2/n.chefmarwanslim.com
+PassengerAppRoot /home/igopav2/n.chefmarwanslim.com/build/
 PassengerAppType node
-PassengerStartupFile app.js
+PassengerStartupFile server.js
