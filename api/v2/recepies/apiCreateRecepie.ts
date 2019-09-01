@@ -2,6 +2,7 @@ import { RequestHandler } from 'express';
 import * as DbModel from '../../../db/sqlRecepieModel';
 import { mysqlDb } from '../../../db/dbv2/db';
 import { PublicInfo, APIError } from '../../../model/shared/messages';
+import * as sql from '../queries/queries';
 
 export const apiCreateRecepie: RequestHandler = (req, res, next) => {
   const requiredFields = ['title', 'category_id', 'level_id'];
