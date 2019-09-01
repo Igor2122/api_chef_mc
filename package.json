@@ -6,7 +6,8 @@
   "scripts": {
     "start-server": "tsc && node build/server.js",
     "start": "nodemon -e ts -w ./ -x npm run start-server",
-    "update-metadata": "node_modules/.bin/schemats generate -c postgres://tourdb_admin:a@Asadaf5@localhost:5432/tourdb -o db/model_generated.ts"
+    "update-metadata": "node_modules/.bin/schemats generate -c postgres://tourdb_admin:a@Asadaf5@localhost:5432/tourdb -o db/model_generated.ts",
+    "generate_mysql_types": "node_modules/.bin/schemats generate -c mysql://root:@root@localhost:8889/chefmcapp  -o db/model_sql_generated.ts"
   },
   "author": "",
   "license": "ISC",
