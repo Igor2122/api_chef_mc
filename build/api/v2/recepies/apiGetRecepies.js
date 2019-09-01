@@ -9,7 +9,6 @@ exports.apiGetRecepies = (req, res, next) => {
             console.log(err);
         }
         else {
-            // res.send(queryParams);
             res.send(result.filter((res) => res.id == queryParams.id));
         }
     });

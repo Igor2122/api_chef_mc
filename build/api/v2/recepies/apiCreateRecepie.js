@@ -5,6 +5,9 @@ const messages_1 = require("../../../model/shared/messages");
 exports.apiCreateRecepie = (req, res, next) => {
     const requiredFields = ['title', 'category_id', 'level_id'];
     const givenFields = Object.getOwnPropertyNames(req.body);
+    if (!requiredFields.every(field => givenFields.includes(field))) {
+        return next(messages_1.APIError.errMissingBody());
+    }
     const newRecepie = {
         title: req.body.title || '',
         category_id: req.body.category_id || '',
@@ -21,5 +24,4 @@ exports.apiCreateRecepie = (req, res, next) => {
             res.send(messages_1.PublicInfo.infoCreated({ id: result.insertId }));
         }
     });
-    // res.send(newRecepie);
 };
