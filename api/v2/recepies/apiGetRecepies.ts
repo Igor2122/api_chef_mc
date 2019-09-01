@@ -9,7 +9,6 @@ export const apiGetRecepies: RequestHandler = (req, res, next) => {
     if (err) {
       console.log(err);
     } else {
-      // res.send(queryParams);
       res.send(result.filter((res: any) => res.id == queryParams.id));
     }
   });
