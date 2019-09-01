@@ -6,4 +6,4 @@ export class Queries {
   }
 }
 
-// export const insert = `INSERT INTO recepies Set ?`;
+export const insertQuery = `INSERT INTO recepies Set ?`;

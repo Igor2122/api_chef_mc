@@ -7,4 +7,4 @@ class Queries {
     }
 }
 exports.Queries = Queries;
-// export const insert = `INSERT INTO recepies Set ?`;
+exports.insertQuery = `INSERT INTO recepies Set ?`;
