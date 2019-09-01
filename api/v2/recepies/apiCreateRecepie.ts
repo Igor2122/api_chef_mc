@@ -1,11 +1,15 @@
 import { RequestHandler } from 'express';
 import * as DbModel from '../../../db/sqlRecepieModel';
 import { mysqlDb } from '../../../db/dbv2/db';
-import { PublicInfo } from '../../../model/shared/messages';
+import { PublicInfo, APIError } from '../../../model/shared/messages';
 
 export const apiCreateRecepie: RequestHandler = (req, res, next) => {
   const requiredFields = ['title', 'category_id', 'level_id'];
   const givenFields = Object.getOwnPropertyNames(req.body);
+
+  if (!requiredFields.every(field => givenFields.includes(field))) {
+    return next(APIError.errMissingBody());
+  }
 
   const newRecepie: DbModel.IRecepie = {
     title: req.body.title || '',
@@ -24,5 +28,4 @@ export const apiCreateRecepie: RequestHandler = (req, res, next) => {
       res.send(PublicInfo.infoCreated({ id: result.insertId }));
     }
   });
-  // res.send(newRecepie);
 };
